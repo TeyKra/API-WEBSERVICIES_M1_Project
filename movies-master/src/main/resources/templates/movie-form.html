@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Save Movie</title>
+</head>
+<body>
+     <div class="container mt-5">
+        <p class="h4 mb-4">ADD Movie</p>
+
+        <form action="#" th:action="@{/movie/save}" th:object="${movie}" method="POST" class="needs-validation" novalidate>
+            <input type="hidden" th:field="*{id}" />
+
+
+            <!-- Existing fields for movieName, releaseYear, genre, plot, rating -->
+
+            <!-- Additional fields for the new columns -->
+            
+			<div class="form-group">
+			    <label for="movieName">Name</label>
+			    <input type="text" th:field="*{movieName}" id="movieName" class="form-control" placeholder="Movie name"/>
+			    <span th:if="${#fields.hasErrors('movieName')}" th:errors="*{movieName}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="releaseYear">Release Year</label>
+			    <input type="text" th:field="*{releaseYear}" id="releaseYear" class="form-control" placeholder="0"/>
+			    <span th:if="${#fields.hasErrors('releaseYear')}" th:errors="*{releaseYear}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+		    	<label for="genre">Genre</label>
+			    <select th:field="*{genre}" id="genre" class="form-control">
+			        <option value="comedy">Comedy</option>
+			        <option value="sci-fi">Sci-Fi</option>
+			        <option value="horror">Horror</option>
+			        <option value="romance">Romance</option>
+			        <option value="action">Action</option>
+			        <option value="thriller">Thriller</option>
+			        <option value="drama">Drama</option>
+			        <option value="mystery">Mystery</option>
+			        <option value="crime">Crime</option>
+			        <option value="animation">Animation</option>
+			        <option value="adventure">Adventure</option>
+			        <option value="fantasy">Fantasy</option>
+			        <option value="superhero">Superhero</option>
+			    </select>
+			    <span th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}" class="badge badge-danger"></span>
+			</div>
+
+			
+			<div class="form-group">
+			    <label for="plot">Plot</label>
+			    <input type="text" th:field="*{plot}" id="plot" class="form-control" placeholder="Plot"/>
+			    <span th:if="${#fields.hasErrors('plot')}" th:errors="*{plot}" class="badge badge-danger"></span>
+			</div>
+			            
+			<div class="form-group">
+			    <label for="rating">Rating</label>
+			    <input type="text" th:field="*{rating}" id="rating" class="form-control"/>
+			    <span th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="duration">Duration (in minutes)</label>
+			    <input type="number" th:field="*{duration}" id="duration" class="form-control" placeholder="Duration"/>
+			    <span th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+		    <label for="language">Language</label>
+		    <select th:field="*{language}" id="language" class="form-control">
+		        <option value="French">Français</option>
+		        <option value="Chinese">Chinois</option>
+		        <option value="English">Anglais</option>
+		        <option value="Spanish">Espagnol</option>
+		        <option value="Japanese">Japonais</option>
+		        <option value="Arabic">Arabe</option>
+		    </select>
+		    <span th:if="${#fields.hasErrors('language')}" th:errors="*{language}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="subtitles">Subtitles</label>
+			    <select th:field="*{subtitles}" id="subtitles" class="form-control">
+			        <option value="French">Français</option>
+			        <option value="Chinese">Chinois</option>
+			        <option value="English">Anglais</option>
+			        <option value="Spanish">Espagnol</option>
+			        <option value="Japanese">Japonais</option>
+			        <option value="Arabic">Arabe</option>
+			    </select>
+			    <span th:if="${#fields.hasErrors('subtitles')}" th:errors="*{subtitles}" class="badge badge-danger"></span>
+			</div>
+
+			
+			<div class="form-group">
+			    <label for="director">Director</label>
+			    <input type="text" th:field="*{director}" id="director" class="form-control" placeholder="Director"/>
+			    <span th:if="${#fields.hasErrors('director')}" th:errors="*{director}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="mainActors">Main Actors</label>
+			    <textarea th:field="*{mainActors}" id="mainActors" class="form-control" placeholder="Main Actors"></textarea>
+			    <span th:if="${#fields.hasErrors('mainActors')}" th:errors="*{mainActors}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="minimumAge">Minimum Age</label>
+			    <input type="number" th:field="*{minimumAge}" id="minimumAge" class="form-control" placeholder="Minimum Age"/>
+			    <span th:if="${#fields.hasErrors('minimumAge')}" th:errors="*{minimumAge}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="startDate">Start Date</label>
+			    <input type="date" th:field="*{startDate}" id="startDate" class="form-control" />
+			    <span th:if="${#fields.hasErrors('startDate')}" th:errors="*{startDate}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="endDate">End Date</label>
+			    <input type="date" th:field="*{endDate}" id="endDate" class="form-control" />
+			    <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			
+		    <label>Days of Week</label>
+		    <div>
+		        <div class="form-check">
+		            <input class="form-check-input" type="checkbox" value="Monday" th:field="*{daysOfWeek}" id="monday">
+		            <label class="form-check-label" for="monday">Monday</label>
+		        </div>
+		        <div class="form-check">
+		            <input class="form-check-input" type="checkbox" value="Tuesday" th:field="*{daysOfWeek}" id="tuesday">
+		            <label class="form-check-label" for="tuesday">Tuesday</label>
+		        </div>
+		        <div class="form-check">
+		            <input class="form-check-input" type="checkbox" value="Wednesday" th:field="*{daysOfWeek}" id="wednesday">
+		            <label class="form-check-label" for="wednesday">Wednesday</label>
+		        </div>
+		        <div class="form-check">
+		            <input class="form-check-input" type="checkbox" value="Thursday" th:field="*{daysOfWeek}" id="thursday">
+		            <label class="form-check-label" for="thursday">Thursday</label>
+		        </div>
+		        <div class="form-check">
+		            <input class="form-check-input" type="checkbox" value="Friday" th:field="*{daysOfWeek}" id="friday">
+		            <label class="form-check-label" for="friday">Friday</label>
+		        </div>
+		        <div class="form-check">
+		            <input class="form-check-input" type="checkbox" value="Saturday" th:field="*{daysOfWeek}" id="saturday">
+		            <label class="form-check-label" for="saturday">Saturday</label>
+		        </div>
+		        <div class="form-check">
+		            <input class="form-check-input" type="checkbox" value="Sunday" th:field="*{daysOfWeek}" id="sunday">
+		            <label class="form-check-label" for="sunday">Sunday</label>
+		        </div>
+		    </div>
+			</div>
+
+			
+			<div class="form-group">
+			    <label for="startTime">Start Time</label>
+			    <input type="time" th:field="*{startTime}" id="startTime" class="form-control" />
+			    <span th:if="${#fields.hasErrors('startTime')}" th:errors="*{startTime}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="cinemaAddress">Cinema Address</label>
+			    <input type="text" th:field="*{cinemaAddress}" id="cinemaAddress" class="form-control" placeholder="Cinema Address" />
+			    <span th:if="${#fields.hasErrors('cinemaAddress')}" th:errors="*{cinemaAddress}" class="badge badge-danger"></span>
+			</div>
+			
+			<div class="form-group">
+			    <label for="city">City</label>
+			    <input type="text" th:field="*{city}" id="city" class="form-control" placeholder="City" />
+			    <span th:if="${#fields.hasErrors('city')}" th:errors="*{city}" class="badge badge-danger"></span>
+			</div>
+
+
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+
+        <hr>
+        <a th:href="@{/movie/list}" class="btn btn-secondary">Back to Movie List</a>
+        <a href="/login" class="btn btn-danger">Logout</a>
+    </div>
+</body>
+</html>

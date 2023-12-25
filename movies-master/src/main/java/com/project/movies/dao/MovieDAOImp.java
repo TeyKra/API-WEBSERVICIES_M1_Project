@@ -1,0 +1,69 @@
+package com.project.movies.dao;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.List;
+import com.project.movies.Entity.Movie;
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public class MovieDAOImp implements MovieDAO {
+
+    private EntityManager entityManager;
+
+    @Autowired
+    public MovieDAOImp(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    @Override
+    public List<Movie> getMovies() {
+        Session session = entityManager.unwrap(Session.class);
+        Query<Movie> movieQuery = session.createQuery("from Movie", Movie.class);
+        return movieQuery.getResultList();
+    }
+
+    @Override
+    public void saveMovie(Movie movie) {
+        Session session = entityManager.unwrap(Session.class);
+        session.saveOrUpdate(movie);
+    }
+
+    @Override
+    public void deleteMovieById(int movieId) {
+        Session session = entityManager.unwrap(Session.class);
+        Query query= session.createQuery("delete from Movie where id =: movieId");
+        query.setParameter("movieId", movieId);
+        query.executeUpdate();
+    }
+
+    
+    @Override
+    public List<Movie> getMoviesByCity(String city) {
+        Session session = entityManager.unwrap(Session.class);
+        Query<Movie> movieQuery = session.createQuery("from Movie where city = :city", Movie.class);
+        movieQuery.setParameter("city", city);
+        return movieQuery.getResultList();
+    }
+    
+    @Override
+    public Optional<Movie> findMovieById(int movieId) {
+        Session session = entityManager.unwrap(Session.class);
+        Movie movie = session.get(Movie.class, movieId);
+        if (movie == null) {
+            return Optional.empty();
+        } else {
+            return Optional.of(movie);
+        }
+    }
+
+
+
+}

@@ -1,6 +1,6 @@
 # Projet-API-WEBSERVICIES
 
-## REST PROJECT REQUIREMENTS
+# REST PROJECT REQUIREMENTS
 
 In this project, you are required to propose a web application providing the following REST services. The project consists of presenting movie schedules in various Parisian cinemas. To get a better idea of what we expect from you for this project, please visit the AlloCiné website.
 
@@ -46,3 +46,8 @@ All teams must submit their work on Moodle by Thursday, December 21st at the lat
 ### Submission Content
 
 No PPT, no Doc, only a functional code/project.
+
+# Submission
+
+We have created a web application that meets all the constraints imposed by the project's specifications. Our application requires an administrator login to add new movies. The administrator view is distinguished by two main functions: adding new movies and managing the movie catalog, including viewing movies. As for the user view, it requires no login. The user view contains only the visualization of the movie catalog.
+

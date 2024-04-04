@@ -1,6 +1,6 @@
 # Projet-API-WEBSERVICIES
 
-## REST PROJECT
+## REST PROJECT REQUIREMENTS
 
 In this project, you are required to propose a web application providing the following REST services. The project consists of presenting movie schedules in various Parisian cinemas. To get a better idea of what we expect from you for this project, please visit the AlloCiné website.
 

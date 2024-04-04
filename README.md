@@ -50,4 +50,5 @@ No PPT, no Doc, only a functional code/project.
 # Submission
 
 We have created a web application that meets all the constraints imposed by the project's specifications. Our application requires an administrator login to add new movies. The administrator view is distinguished by two main functions: adding new movies and managing the movie catalog, including viewing movies. As for the user view, it requires no login. The user view contains only the visualization of the movie catalog.
+Regarding the storage of movies and administrator data, this is carried out through a MySQL database directly connected to our web application.
 
